@@ -248,3 +248,43 @@ figure{margin:0}
 .carta-grid+.wrap{margin-top:28px}
 @media (max-width:900px){.carta-grid{grid-template-columns:1fr}}
 @media (max-width:640px){.photo-grid,.photo-grid.light{grid-auto-rows:150px}.photo-grid.light figure:nth-child(3){grid-column:span 2}}
+
+/* Visual: cinta de fotos, ecualizador, letras, reveal, lightbox */
+.ribbon{overflow:hidden;margin-top:8px;padding:6px 0 14px}
+.ribbon-track{display:flex;width:max-content;animation:slide 60s linear infinite}
+.ribbon:hover .ribbon-track{animation-play-state:paused}
+.ribbon figure{height:280px;margin:0 14px 0 0;flex:0 0 auto;border:2px solid var(--ink);border-radius:6px;overflow:hidden;box-shadow:5px 5px 0 var(--ink);cursor:zoom-in;background:#ddd}
+.ribbon img{height:100%;width:auto;max-width:none;display:block;transition:transform .5s}
+.ribbon figure:hover img{transform:scale(1.06)}
+.photo-grid figure,.carta-photos figure{cursor:zoom-in}
+.photo-grid img,.carta-photos img{transition:transform .5s}
+.photo-grid figure:hover img,.carta-photos figure:hover img{transform:scale(1.05)}
+.eq{display:flex;align-items:flex-end;gap:6px;height:64px;margin-top:40px;opacity:.9}
+.eq i{flex:1;background:#ffb4a8;border-radius:3px 3px 0 0;height:20%;animation:eq 1.1s ease-in-out infinite alternate}
+.eq i:nth-child(3n){animation-duration:.8s;background:#fff}
+.eq i:nth-child(4n){animation-duration:1.4s}
+.eq i:nth-child(5n+1){animation-delay:-.4s}
+.eq i:nth-child(7n+2){animation-delay:-.9s}
+@keyframes eq{0%{height:12%}100%{height:100%}}
+.hero h1 .ch{display:inline-block;animation:drop .7s cubic-bezier(.2,.9,.3,1.3) both}
+@keyframes drop{0%{opacity:0;transform:translateY(-.5em) rotate(-8deg)}100%{opacity:1;transform:none}}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+.feature{transition:background .25s,transform .25s}
+.feature:hover{background:#fff}
+.feature svg{transition:transform .35s}
+.feature:hover svg{transform:rotate(-8deg) scale(1.15)}
+.menu-card{transition:transform .25s,box-shadow .25s}
+.menu-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.raciones .numbered li{transition:padding .2s,color .2s}
+.raciones .numbered li:hover{padding-left:8px;color:var(--red)}
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(12,13,18,.94);display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1100px,100%);max-height:86vh;border-radius:6px;box-shadow:0 20px 60px #000a}
+.lightbox button{position:absolute;border:2px solid #fff;background:transparent;color:#fff;width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer}
+.lightbox button:hover{background:var(--red);border-color:var(--red)}
+.lightbox .lb-close{top:18px;right:18px}
+.lightbox .lb-prev{left:18px;top:50%}
+.lightbox .lb-next{right:18px;top:50%}
+@media(max-width:720px){.ribbon figure{height:200px}.lightbox .lb-prev{left:8px;top:auto;bottom:18px}.lightbox .lb-next{right:8px;top:auto;bottom:18px}}
+@media(prefers-reduced-motion:reduce){.ribbon-track,.eq i,.hero h1 .ch{animation:none}.js .reveal{opacity:1;transform:none;transition:none}}
