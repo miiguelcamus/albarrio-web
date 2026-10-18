@@ -227,3 +227,24 @@ address{font-style:normal;font-size:18px;margin-top:26px;line-height:1.5}
 }
 [id]{scroll-margin-top:84px}
 .footer{border-top:4px solid var(--red)}
+
+/* Fotos reales */
+figure{margin:0}
+.photo-grid{grid-auto-rows:240px}
+.photo-grid figure{overflow:hidden;border-radius:6px;background:#1b1e26}
+.photo-grid img,.carta-photos img,.banner img{display:block;width:100%;height:100%;object-fit:cover}
+.photo-grid figure.wide{grid-column:span 2}
+.photo-grid.light{margin-top:14px;grid-auto-rows:260px}
+.photo-grid.light figure{border:2px solid var(--ink)}
+.banner{border:2px solid var(--ink);border-radius:6px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);margin-bottom:22px;max-height:420px}
+.carta-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px;align-items:start}
+.carta-photos{display:grid;gap:14px}
+.carta-photos figure{border:2px solid var(--ink);border-radius:6px;overflow:hidden;aspect-ratio:4/3}
+.raciones .numbered{counter-reset:r}
+.raciones .numbered li{counter-increment:r;padding:8px 0}
+.raciones .numbered li::before{content:counter(r) ".";font-family:var(--font-mono);font-size:12px;color:var(--muted);min-width:26px}
+.price{font-family:var(--font-mono);font-weight:500;color:var(--ink)!important;text-transform:none!important;font-size:14px!important;white-space:nowrap}
+.menu-extra{margin:16px 0 0;padding-top:14px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;gap:12px;font-weight:600}
+.carta-grid+.wrap{margin-top:28px}
+@media (max-width:900px){.carta-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.photo-grid,.photo-grid.light{grid-auto-rows:150px}.photo-grid.light figure:nth-child(3){grid-column:span 2}}
